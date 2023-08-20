@@ -11,15 +11,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let videos of videos">
-            <th>{{ videos.id }}</th>
-            <td>{{ videos.name }}</td>
-            <td>{{ videos.gameEngine }}</td>
-            <td>{{ videos.description}}</td>
+          <tr *ngFor="let video of videos">
+            <th>{{ video.id }}</th>
+            <td>{{ video.name }}</td>
+            <td>{{ video.gameEngine }}</td>
+            <td>{{ video.description}}</td>
             <td>
-                <a [routerLink]="[]">Edit</a>
+                <a [routerLink]="['/videos', 'edit', video.id]">Edit</a>
                 <span class="space"> </span>
-                <a [routerLink]="[]">Delete</a>
+                <a [routerLink]="[]" (click)="deleteVideo(video.id)">Delete</a>
             </td>
             <!-- <td></td> -->
             <!-- <td><a [routerLink]="[]" (click)="deleteProduct(product.id)">Delete</a></td> -->

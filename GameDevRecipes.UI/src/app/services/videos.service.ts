@@ -7,7 +7,7 @@ import { Video } from '../models/video.model';
   providedIn: 'root'
 })
 export class VideosService {
-  baseApiUrl: String = "https://localhost:7256";
+  baseApiUrl: String = "https://localhost:7150";
 
   constructor(private http: HttpClient) {}
 
