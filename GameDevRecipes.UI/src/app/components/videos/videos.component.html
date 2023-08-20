@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Videos</h1>
+    <table class="table" *ngIf="videos && videos.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">Id#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Game Engine</th>
+            <th scope="col">Description</th>
+            <th scope="colgroup">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let videos of videos">
+            <th>{{ videos.id }}</th>
+            <td>{{ videos.name }}</td>
+            <td>{{ videos.gameEngine }}</td>
+            <td>{{ videos.description}}</td>
+            <td>
+                <a [routerLink]="[]">Edit</a>
+                <span class="space"> </span>
+                <a [routerLink]="[]">Delete</a>
+            </td>
+            <!-- <td></td> -->
+            <!-- <td><a [routerLink]="[]" (click)="deleteProduct(product.id)">Delete</a></td> -->
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="!videos || videos.length == 0">No Products Found</p>
+</div>
