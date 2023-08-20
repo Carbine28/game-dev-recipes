@@ -24,7 +24,7 @@ namespace GameDevRecipes.API.Controllers
         }
 
         [HttpGet]
-        [Route("{d:Guid}")]
+        [Route("{id:Guid}")]
         public async Task<IActionResult> GetVideo(Guid id)
         {
             var video = await _gameDevRecipesDbContext.Videos.FindAsync(id);
