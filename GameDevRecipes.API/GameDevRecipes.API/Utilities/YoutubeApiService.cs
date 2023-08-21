@@ -43,7 +43,7 @@ namespace GameDevRecipes.API.Utilities
                 string limitedString = descriptionString.Substring(0, Math.Min(descriptionString.Length, Video.max_description_length));
                 retrievedVideo.Description = limitedString;
 
-                retrievedVideo.ThumbnailLink = snippet.Thumbnails.Default__.Url;
+                retrievedVideo.ThumbnailLink = snippet.Thumbnails.Standard.Url;
 
                 return retrievedVideo;
             }

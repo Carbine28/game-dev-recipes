@@ -7,3 +7,14 @@
     flex: 1;
     padding: 20px;
   }
+
+.app-container-custom{
+  background-color: #202020; /* Replace with your desired background color */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-container-custom{
+  padding-bottom: 18px;
+  background-color: #202020;
+}

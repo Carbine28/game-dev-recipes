@@ -1,0 +1,20 @@
+.card-header-box{
+    background-color: #6c757d;
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+    max-height: 49px;
+}
+
+.card-header{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text{
+    padding: 6px;
+    overflow: hidden;     /* Hide overflowing content */
+    /* white-space: nowrap;  Prevent line breaks */
+    max-height: 75px;
+    text-overflow: ellipsis; /* Show ellipsis (...) when text overflows */
+}

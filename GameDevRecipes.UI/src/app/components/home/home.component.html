@@ -1,7 +1,29 @@
 <div class="Search container">
     
-    <div class="logo">Logo will go above here</div>
+    <div class="logo">
+        <div class="logo-container"></div>
+    </div>
     
-    <div class="searchbar">Search bar goes here</div>
-    
+    <div class="search-description-container">
+        <div class="search-description">
+            Welcome to Game Dev Recipes! On this site you'll find a collection of game development tutorials 
+            to help develop a game. Use the search bar below to look for videos that teach a specific topic in your desired game engine.</div>
+        </div>
+    <div class="searchbar-container">
+        <div class="input-group mb-3" id="searchbar">
+            <input type="text" class="form-control" placeholder="Search for videos using tags (e.g. Ai, Pathfinding, Rpg)" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    </div>
+</div>
+
+<div container="video-card-container">
+    <div class="card-container">
+        <div class="results">
+            <app-video-card
+            *ngFor="let _videoCard of filteredVideoList"
+            [videoCard]="_videoCard">
+            </app-video-card>
+        </div>
+    </div>
 </div>
