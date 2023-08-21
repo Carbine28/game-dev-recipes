@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
 
+using GameDevRecipes.API.Utilities;
+
 namespace GameDevRecipes.API.Controllers
 {
     [ApiController]
@@ -11,9 +13,11 @@ namespace GameDevRecipes.API.Controllers
     public class VideosController : Controller
     {
         private readonly GameDevRecipesDbContext _gameDevRecipesDbContext;
-        public VideosController(GameDevRecipesDbContext gameDevrecipesDbContext)
+        private readonly YoutubeApiService _youtubeApiService;
+        public VideosController(GameDevRecipesDbContext gameDevrecipesDbContext, YoutubeApiService youtubeApiService)
         {
             this._gameDevRecipesDbContext = gameDevrecipesDbContext;
+            this._youtubeApiService = youtubeApiService;
         }
 
         [HttpGet]
@@ -36,6 +40,11 @@ namespace GameDevRecipes.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVideo([FromBody] Video video)
         {
+            if (!YoutubeLinkValidator.ValidateYoutubeLink(video.VideoId))
+                return BadRequest("Invalid Youtube Link");
+
+            // Process the link with youtube api
+
             video.Id = Guid.NewGuid();
             await _gameDevRecipesDbContext.AddAsync(video);
             await _gameDevRecipesDbContext.SaveChangesAsync();
@@ -50,6 +59,12 @@ namespace GameDevRecipes.API.Controllers
 
             if (video == null)
                 return NotFound();
+
+            if (!YoutubeLinkValidator.ValidateYoutubeLink(updateVideoRequest.VideoId))
+                return BadRequest("Invalid Youtube Link");
+
+            // Process the link with youtube api
+
             video.Name = updateVideoRequest.Name;
             video.Description = updateVideoRequest.Description;
             video.GameEngine = updateVideoRequest.GameEngine;
