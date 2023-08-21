@@ -15,12 +15,18 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VideosComponent } from './components/videos/videos.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AddVideoComponent } from './components/add-video/add-video.component';
+import { HomeComponent } from './components/home/home.component';
+import { EditVideoComponent } from './components/edit-video/edit-video.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    VideosComponent
+    VideosComponent,
+    AddVideoComponent,
+    HomeComponent,
+    EditVideoComponent
   ],
   imports: [
     BrowserModule,

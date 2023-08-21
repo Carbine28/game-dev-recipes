@@ -23,17 +23,17 @@ export class VideosService {
 
   addVideo(newVideo: Video): Observable<Video> {
     newVideo.id = '00000000-0000-0000-0000-000000000000';
-    return this.http.post<Video>(this.baseApiUrl + '/api/Video', newVideo);
+    return this.http.post<Video>(this.baseApiUrl + '/api/videos', newVideo);
   }
 
   updateVideo(id: string, updateVideoRequest: Video): Observable<Video>
   {
-    return this.http.put<Video>(this.baseApiUrl + '/api/Video/' + id, updateVideoRequest);
+    return this.http.put<Video>(this.baseApiUrl + '/api/videos/' + id, updateVideoRequest);
   }
   
   deleteVideo(id: string): Observable<Video>
   {
-    return this.http.delete<Video>(this.baseApiUrl + '/api/Video/' + id);
+    return this.http.delete<Video>(this.baseApiUrl + '/api/videos/' + id);
   }
 }
 

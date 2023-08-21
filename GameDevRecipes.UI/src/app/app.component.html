@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Videos</a>
+          <a class="nav-link" [routerLink]="['videos']">Videos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add Videos</a>
+          <a class="nav-link" [routerLink]="['videos', 'add']">Add Videos</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
