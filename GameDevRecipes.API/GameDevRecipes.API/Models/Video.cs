@@ -7,7 +7,7 @@ namespace GameDevRecipes.API.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        [MaxLength(270)]
+        [MaxLength(max_description_length)]
         public string Description { get; set; }
         public string GameEngine { get; set; }
         public string ThumbnailLink { get; set; }
@@ -16,5 +16,7 @@ namespace GameDevRecipes.API.Models
 
         [NotMapped] // This property is not mapped to the database
         public List<string> Tags => TagsAsString?.Split(',').ToList() ?? new List<string>();
+        [NotMapped]
+        public const int max_description_length = 270;
     }
 }

@@ -38,7 +38,11 @@ namespace GameDevRecipes.API.Utilities
                 var snippet = videoResponse.Items[0].Snippet;
 
                 retrievedVideo.Name = snippet.Title;
-                retrievedVideo.Description = snippet.Description;
+                // Reduce length of description string to prevent Db throwing errors about truncation
+                string descriptionString = snippet.Description;
+                string limitedString = descriptionString.Substring(0, Math.Min(descriptionString.Length, Video.max_description_length));
+                retrievedVideo.Description = limitedString;
+
                 retrievedVideo.ThumbnailLink = snippet.Thumbnails.Default__.Url;
 
                 return retrievedVideo;
