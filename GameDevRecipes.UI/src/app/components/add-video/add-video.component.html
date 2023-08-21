@@ -7,12 +7,30 @@
                   <label for="videoId" class="form-label">Youtube Link</label>
                   <input type="text" placeholder="Copy and Paste a youtube link here!" class="form-control" id="videoId"
                     name="videoId" [(ngModel)]="newVideo.videoId" (input)="validateInput()">
-                  <div *ngIf="!isValidInput" class="text-danger">Input should start with 'https://youtu.be/'</div>
+                  <div *ngIf="!isValidInput && inputLength > 0" class="text-danger">Input should start with 'https://youtu.be/'</div>
                 </div>
+                <div class="mb-3">
+                  <mat-form-field>
+                    <mat-label>Game Engine</mat-label>
+                    <mat-select [(ngModel)]="selectedGameEngine" name="selectedGameEngine">
+                      <mat-option *ngFor="let gameEngine of gameEngines" [value]="gameEngine.value">
+                        {{gameEngine.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+               
+                <!-- <div class="mb-3">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Game Engine</option>
+                    <option value="Unity">Unity</option>
+                    <option value="Unreal">Unreal</option>
+                    <option value="Godot">Godot</option>
+                  </select>
+                </div> -->
                 <button type="submit" class="btn btn-primary" [disabled]="!isValidInput">Save</button>
               </form>
-              
-        </div>
+                
     </div>
 </div>
 

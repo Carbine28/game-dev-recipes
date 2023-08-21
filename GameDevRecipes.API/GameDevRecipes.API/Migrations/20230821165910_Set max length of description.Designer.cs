@@ -4,6 +4,7 @@ using GameDevRecipes.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameDevRecipes.API.Migrations
 {
     [DbContext(typeof(GameDevRecipesDbContext))]
-    partial class GameDevRecipesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230821165910_Set max length of description")]
+    partial class Setmaxlengthofdescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

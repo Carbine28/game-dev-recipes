@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameDevRecipes.API.Models
 {
@@ -6,6 +7,7 @@ namespace GameDevRecipes.API.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        [MaxLength(270)]
         public string Description { get; set; }
         public string GameEngine { get; set; }
         public string ThumbnailLink { get; set; }

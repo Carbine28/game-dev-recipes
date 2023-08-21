@@ -49,7 +49,7 @@ namespace GameDevRecipes.API.Utilities
             }
         }
 
-        // Parse the Youtube URL and return the absolute path , trimmed.
+        // Parse the Youtube URL and returns the absolute path , trimmed.
         // i.e (h)ttps://youtu.be/ABCDEFG
         // Returns ABCDEFG
         public static string TrimLinkToID(string link)

@@ -4,7 +4,7 @@ export interface Video
     name: string,
     description: string,
     gameEngine: string,
-    tagsAsStrings: string,
+    tagsAsString: string,
     thumbnailLink: string,
     videoId: string,
 }

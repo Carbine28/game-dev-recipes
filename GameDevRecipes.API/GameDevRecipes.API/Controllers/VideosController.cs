@@ -47,7 +47,7 @@ namespace GameDevRecipes.API.Controllers
             // Process the link with youtube api utility helper
             var newVideo = await _youtubeApiService.GetVideoDetailsAsync(video.VideoId);
             if (newVideo == null)
-                return BadRequest("yeah its bad");
+                return BadRequest("Error with fetching video using Youtube API");
 
             newVideo.Id = Guid.NewGuid(); // Generate new ID for video
             // Reassignment -_-
@@ -65,7 +65,6 @@ namespace GameDevRecipes.API.Controllers
         public async Task<IActionResult> UpdateVideo([FromRoute] Guid id, Video updateVideoRequest)
         {
             var video = await _gameDevRecipesDbContext.Videos.FindAsync(id);
-
             if (video == null)
                 return NotFound();
 
@@ -73,6 +72,12 @@ namespace GameDevRecipes.API.Controllers
                 return BadRequest("Invalid Youtube Link");
 
             // Process the link with youtube api
+            Video newVideo = await _youtubeApiService.GetVideoDetailsAsync(updateVideoRequest.VideoId);
+            if (newVideo == null)
+                return BadRequest("Error with fetching video using Youtube API");
+            updateVideoRequest.Name = newVideo.Name;
+            updateVideoRequest.ThumbnailLink = newVideo.ThumbnailLink;
+            updateVideoRequest.Description = newVideo.Description;
 
             video.Name = updateVideoRequest.Name;
             video.Description = updateVideoRequest.Description;
