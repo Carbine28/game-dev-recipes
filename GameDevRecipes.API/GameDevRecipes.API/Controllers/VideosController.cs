@@ -40,15 +40,24 @@ namespace GameDevRecipes.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVideo([FromBody] Video video)
         {
+            // Check if video received matches regex pattern
             if (!YoutubeLinkValidator.ValidateYoutubeLink(video.VideoId))
                 return BadRequest("Invalid Youtube Link");
 
-            // Process the link with youtube api
+            // Process the link with youtube api utility helper
+            var newVideo = await _youtubeApiService.GetVideoDetailsAsync(video.VideoId);
+            if (newVideo == null)
+                return BadRequest("yeah its bad");
 
-            video.Id = Guid.NewGuid();
-            await _gameDevRecipesDbContext.AddAsync(video);
+            newVideo.Id = Guid.NewGuid(); // Generate new ID for video
+            // Reassignment -_-
+            newVideo.VideoId = video.VideoId; 
+            newVideo.GameEngine = video.GameEngine;
+            newVideo.TagsAsString = video.TagsAsString;
+            // Save video into db 
+            await _gameDevRecipesDbContext.AddAsync(newVideo);
             await _gameDevRecipesDbContext.SaveChangesAsync();
-            return Ok(video);
+            return Ok(newVideo);
         }
 
         [HttpPut]
