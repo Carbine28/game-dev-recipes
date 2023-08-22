@@ -3,7 +3,7 @@ using GameDevRecipes.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
-
+using System.Linq;
 using GameDevRecipes.API.Utilities;
 
 namespace GameDevRecipes.API.Controllers
@@ -37,6 +37,16 @@ namespace GameDevRecipes.API.Controllers
             return Ok(video);
         }
 
+        [HttpGet("{tag}")]
+        public async Task<IActionResult> getTaggedVideos(string tag)
+        {
+            var allVideos = await _gameDevRecipesDbContext.Videos.ToListAsync();
+
+            var videosWithTag = allVideos.Where(video => TagProcessor.FindTag(video.Tags, tag));
+
+            return Ok(videosWithTag);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddVideo([FromBody] Video video)
         {
@@ -53,7 +63,8 @@ namespace GameDevRecipes.API.Controllers
             // Reassignment -_-
             newVideo.VideoId = video.VideoId; 
             newVideo.GameEngine = video.GameEngine;
-            newVideo.TagsAsString = video.TagsAsString;
+            newVideo.TagsAsString = video.TagsAsString; // ** Change this line later in future so that we can process the number of tags in a string and only return MAX tags
+      
             // Save video into db 
             await _gameDevRecipesDbContext.AddAsync(newVideo);
             await _gameDevRecipesDbContext.SaveChangesAsync();

@@ -15,6 +15,7 @@ export class HomeComponent {
 
   videoList: Video[] = [];
   filteredVideoList: Video[] = [];
+  searchTag: string = '';
 
   ngOnInit(): void
   {
@@ -30,5 +31,39 @@ export class HomeComponent {
         console.log(res);
       }
     })
+  }
+
+  getFilteredVideos(tag: string)
+  {
+    if(tag == ""){
+      this.filteredVideoList = this.videoList; // Empty search means show all videos fetched on init
+    }
+    else{
+      this.clearSearchBar();
+      console.log("getFilteredVideo called with tag: " + tag);
+      this.videoService.getTaggedVideos(tag).subscribe({
+        next: (videos) => {
+          this.filteredVideoList = videos;
+          console.log(this.filteredVideoList);
+        },
+        error: (res) => {
+          console.log(res);
+        } 
+      });
+      
+    }
+    
+  }
+
+  clearSearchBar()
+  {
+    this.searchTag = '';
+  }
+
+
+  handleTagClick(tag: string)
+  {
+    // console.log(tag);
+    this.getFilteredVideos(tag);
   }
 }

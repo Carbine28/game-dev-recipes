@@ -1,16 +1,24 @@
 <div class="container">
-    <h1>Add new video</h1>
+    
     <div class="row">
         <div class="col-4">
             <form #forms="ngForm" (ngSubmit)="addVideo()">
-                <div class="mb-3">
-                  <label for="videoId" class="form-label">Youtube Link</label>
+
+              <div class="form-head-custom">
+                <h1>Add new video</h1>
+                <button type="submit" class="btn btn-primary btn-sm btn-custom" [disabled]="!isValidInput">Save</button>
+              </div>
+              
+              <div class="mb-3">
+                <label for="videoId" class="form-label">Youtube Link</label>
+                <div class="two-container">
                   <input type="text" placeholder="Copy and Paste a youtube link here!" class="form-control" id="videoId"
-                    name="videoId" [(ngModel)]="newVideo.videoId" (input)="validateInput()">
-                  <div *ngIf="!isValidInput && inputLength > 0" class="text-danger">Input should start with 'https://youtu.be/'</div>
+                  name="videoId" [(ngModel)]="newVideo.videoId" (input)="validateInput()">
                 </div>
-                <div class="mb-3">
-                  <mat-form-field>
+                <div *ngIf="!isValidInput && inputLength > 0" class="text-danger text-danger-custom">Input should start with 'https://youtu.be/'</div>
+
+                <div class="mb-3 field-custom">
+                  <mat-form-field subscriptSizing="dynamic">
                     <mat-label>Game Engine</mat-label>
                     <mat-select [(ngModel)]="selectedGameEngine" name="selectedGameEngine">
                       <mat-option *ngFor="let gameEngine of gameEngines" [value]="gameEngine.value">
@@ -19,18 +27,22 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-               
-                <!-- <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Game Engine</option>
-                    <option value="Unity">Unity</option>
-                    <option value="Unreal">Unreal</option>
-                    <option value="Godot">Godot</option>
-                  </select>
-                </div> -->
-                <button type="submit" class="btn btn-primary" [disabled]="!isValidInput">Save</button>
-              </form>
-                
+
+              </div>
+              
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter in a tag (e.g. path finding)" aria-label="Tag input" aria-describedby="button-addon2"
+                 name="tagInput"[(ngModel)]="tagInput" (input)="validateTagInput()">
+                <button class="btn btn-outline-primary btn-custom2" type="button" id="button-addon2" [disabled]="!isValidTagInput" (click)="submitTag()">Submit Tag</button>
+              </div>
+              <div *ngIf=" (tagInputLength > maxTagLength && tagInputLength < 3)" class="text-danger text-danger-custom">Tag is too long'</div>
+          
+            </form>
+            <div class="tag-container-custom" *ngIf="tagsArr.length > 0">
+              <div class="tags-container" >
+                <span class="tag tag-purple" *ngFor="let tag of tagsArr">{{ tag }}</span>
+              </div>
+            </div>
     </div>
 </div>
 

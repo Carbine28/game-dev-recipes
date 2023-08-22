@@ -13,7 +13,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VideosComponent } from './components/videos/videos.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -21,17 +20,18 @@ import { AddVideoComponent } from './components/add-video/add-video.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditVideoComponent } from './components/edit-video/edit-video.component';
 import { VideoCardComponent } from './components/video-card/video-card.component';
+import { VideoModalComponent } from './components/video-modal/video-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     VideosComponent,
     AddVideoComponent,
     HomeComponent,
     EditVideoComponent,
-    VideoCardComponent
+    VideoCardComponent,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,66 @@
+h1{
+    color: white;
+}
+.form-label{
+    color: white;
+}
+
+.form-head-custom{
+    display: flex;
+    padding: 4px;
+    align-items: center;
+}
+
+.btn-custom{
+    margin-left: 12px;
+    height: 32px;
+    min-height: 32px;
+    width: 56px;
+    min-width: 56px;
+}
+
+.two-container{
+    display: flex;
+    justify-content: flex-start ;
+    align-items: center;
+    width: fit-content;
+    padding-right: 12px;
+    margin-bottom: 12px;
+}
+
+.text-danger-custom{
+    margin-bottom: 12px;
+}
+
+#videoId{
+    width: 480px;
+    height: 48px;
+    margin-right: 12px;
+}
+
+.tag-container-custom{
+    color: white;
+}
+
+.tag {
+    background: #cccccc;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 0;
+    color: #fff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 6px;
+  }
+
+.tag-purple {
+    background-color: #5e76bf;
+  }
+
+/* .btn-custom2{
+    background-color: ;
+} */
+::ng-deep .mat-form-field-wrapper{
+    margin-bottom: -1.25em;
+ }

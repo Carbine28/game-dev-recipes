@@ -20,6 +20,11 @@ export class VideosService {
   getVideo(id: string): Observable<Video> {
     return this.http.get<Video>(this.baseApiUrl + '/api/videos/' + id);
   }
+  // GET
+  getTaggedVideos(tag: string): Observable<Video[]>
+  {
+    return this.http.get<Video[]>(this.baseApiUrl + '/api/videos/' + tag);
+  }
   // POST
   addVideo(newVideo: Video): Observable<Video> {
     newVideo.id = '00000000-0000-0000-0000-000000000000'; // Assign empty guid to video. Will be replaced in aspnet core

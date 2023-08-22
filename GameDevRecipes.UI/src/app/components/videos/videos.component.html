@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Videos</h1>
     <table class="table" *ngIf="videos && videos.length > 0">
-        <thead>
+        <thead class="table-head-custom">
           <tr>
             <th scope="col">Id#</th>
             <th scope="col">Name</th>
@@ -26,5 +26,5 @@
           </tr>
         </tbody>
       </table>
-      <p *ngIf="!videos || videos.length == 0">No Products Found</p>
+      <p *ngIf="!videos || videos.length == 0">No Videos Found</p>
 </div>

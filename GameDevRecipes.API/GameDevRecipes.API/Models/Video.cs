@@ -16,7 +16,10 @@ namespace GameDevRecipes.API.Models
 
         [NotMapped] // This property is not mapped to the database
         public List<string> Tags => TagsAsString?.Split(',').ToList() ?? new List<string>();
+
         [NotMapped]
         public const int max_description_length = 270;
+        [NotMapped]
+        public const int max_tag_count = 5;
     }
 }

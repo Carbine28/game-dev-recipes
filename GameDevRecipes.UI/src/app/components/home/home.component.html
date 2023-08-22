@@ -11,8 +11,9 @@
         </div>
     <div class="searchbar-container">
         <div class="input-group mb-3" id="searchbar">
-            <input type="text" class="form-control" placeholder="Search for videos using tags (e.g. Ai, Pathfinding, Rpg)" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            <input type="text" class="form-control" placeholder="Search for videos using tags (e.g. Ai, Pathfinding, Rpg)" aria-label="Recipient's username" aria-describedby="button-addon2"
+            name="searchTag" [(ngModel)]="searchTag">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getFilteredVideos(searchTag)">Search</button>
         </div>
     </div>
 </div>
@@ -20,7 +21,7 @@
 <div container="video-card-container">
     <div class="card-container">
         <div class="results">
-            <app-video-card
+            <app-video-card (tagClick)="handleTagClick($event)"
             *ngFor="let _videoCard of filteredVideoList"
             [videoCard]="_videoCard">
             </app-video-card>
