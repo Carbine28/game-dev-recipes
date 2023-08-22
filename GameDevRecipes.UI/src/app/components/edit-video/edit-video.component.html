@@ -1,1 +1,48 @@
-<p>edit-video works!</p>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-4">
+            <form #forms="ngForm" (ngSubmit)="updateVideo()">
+
+              <div class="form-head-custom">
+                <h1>Update video</h1>
+                <button type="submit" class="btn btn-primary btn-sm btn-custom">Update</button>
+              </div>
+              
+              <div class="mb-3">
+                <label for="videoId" class="form-label">Youtube Link</label>
+                <div class="two-container">
+                  <input type="text"class="form-control" id="videoId"
+                  name="videoId" readonly [(ngModel)]="updatedVideo.videoId">
+                </div>
+            
+                <div class="mb-3 field-custom">
+                  <mat-form-field subscriptSizing="dynamic">
+                    <mat-label>Game Engine</mat-label>
+                    <mat-select [(ngModel)]="updatedVideo.gameEngine" name="gameEngine">
+                      <mat-option *ngFor="let gameEngine of gameEngines" [value]="gameEngine.value">
+                        {{gameEngine.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+              </div>
+              
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter in a tag (e.g. path finding)" aria-label="Tag input" aria-describedby="button-addon2"
+                 name="tagInput"[(ngModel)]="tagInput" (input)="validateTagInput()">
+                <button class="btn btn-outline-primary btn-custom2" type="button" id="button-addon2" [disabled]="!isValidTagInput" (click)="submitTag()">Submit Tag</button>
+              </div>
+              <div *ngIf=" (tagInputLength > maxTagLength && tagInputLength < 3)" class="text-danger text-danger-custom">Tag is too long'</div>
+          
+            </form>
+            <div class="tag-container-custom" *ngIf="tagsArr.length > 0">
+              <div class="tags-container" >
+                <span class="tag tag-purple" *ngFor="let tag of tagsArr">{{ tag }}</span>
+              </div>
+            </div>
+    </div>
+</div>
+
+<!-- https://youtu.be/qkkM3MAd_9I -->

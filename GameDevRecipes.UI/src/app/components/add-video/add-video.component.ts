@@ -53,7 +53,6 @@ export class AddVideoComponent {
       this.isValidTagInput = true;
     else
       this.isValidTagInput = false;
-
   }
   // Sends new video data to server
   addVideo(){
@@ -73,7 +72,6 @@ export class AddVideoComponent {
     this.resultString = this.tagInput.replace(/[^a-zA-Z]/g, ''); // Filter input with regex to only take alphabetical letters
     this.tagsArr.push(this.resultString);
     this.tagInput = ''; // Clear Tag Input
-    
     // console.log(this.tagsArr);
   }
   resultString: string = "";

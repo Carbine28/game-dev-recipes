@@ -56,11 +56,8 @@ h1{
 
 .tag-purple {
     background-color: #5e76bf;
-  }
+}
 
 /* .btn-custom2{
     background-color: ;
 } */
-::ng-deep .mat-form-field-wrapper{
-    margin-bottom: -1.25em;
- }

@@ -19,7 +19,8 @@ import { VideosService } from 'src/app/services/videos.service';
       </div> -->
       <div class="card">
         <div class="card-header">
-          <img [src]="videoCard.thumbnailLink" alt="Thumbnail image of video {{videoCard.name}}" />
+          <a href="{{videoCard.videoId}}" style="text-decoration: none;"><img [src]="videoCard.thumbnailLink" alt="Thumbnail image of video {{videoCard.name}}" /></a>
+          
         </div>
         <div class="card-body">
           <!-- <span class="tag tag-teal">Technology</span> -->
@@ -31,8 +32,8 @@ import { VideosService } from 'src/app/services/videos.service';
               <span class="tag tag-purple" (click)="onTagClick(tag)">{{ tag }}</span>
             </a>
           </div>
+          <a href="{{videoCard.videoId}}" style="text-decoration: none; color:inherit;"><h4>{{videoCard.name}}</h4></a>
           
-          <h4>{{videoCard.name}}</h4>
           <!-- <p class="card-description">
             {{videoCard.description}}
           </p> -->

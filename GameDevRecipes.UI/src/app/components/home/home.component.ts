@@ -24,7 +24,6 @@ export class HomeComponent {
     .subscribe({
       next: (videos) => {
         this.videoList = videos;
-        this.filteredVideoList = videos;
         console.log(`Number of videos: ${this.videoList.length}`)
       },
       error: (res) => {

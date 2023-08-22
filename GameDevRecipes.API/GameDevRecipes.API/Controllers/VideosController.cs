@@ -41,7 +41,8 @@ namespace GameDevRecipes.API.Controllers
         public async Task<IActionResult> getTaggedVideos(string tag)
         {
             var allVideos = await _gameDevRecipesDbContext.Videos.ToListAsync();
-
+            if (tag == "")
+                return Ok(allVideos);
             var videosWithTag = allVideos.Where(video => TagProcessor.FindTag(video.Tags, tag));
 
             return Ok(videosWithTag);
@@ -71,6 +72,7 @@ namespace GameDevRecipes.API.Controllers
             return Ok(newVideo);
         }
 
+        // Change only game engine or tag of video
         [HttpPut]
         [Route("{id:Guid}")]
         public async Task<IActionResult> UpdateVideo([FromRoute] Guid id, Video updateVideoRequest)
@@ -82,19 +84,7 @@ namespace GameDevRecipes.API.Controllers
             if (!YoutubeLinkValidator.ValidateYoutubeLink(updateVideoRequest.VideoId))
                 return BadRequest("Invalid Youtube Link");
 
-            // Process the link with youtube api
-            Video newVideo = await _youtubeApiService.GetVideoDetailsAsync(updateVideoRequest.VideoId);
-            if (newVideo == null)
-                return BadRequest("Error with fetching video using Youtube API");
-            updateVideoRequest.Name = newVideo.Name;
-            updateVideoRequest.ThumbnailLink = newVideo.ThumbnailLink;
-            updateVideoRequest.Description = newVideo.Description;
-
-            video.Name = updateVideoRequest.Name;
-            video.Description = updateVideoRequest.Description;
             video.GameEngine = updateVideoRequest.GameEngine;
-            video.ThumbnailLink = updateVideoRequest.ThumbnailLink;
-            video.VideoId = updateVideoRequest.VideoId;
             video.TagsAsString = updateVideoRequest.TagsAsString;
             await _gameDevRecipesDbContext.SaveChangesAsync();
             return Ok(video);
