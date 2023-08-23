@@ -72,7 +72,7 @@ export class AddVideoComponent {
     this.resultString = this.tagInput.replace(/[^a-zA-Z]/g, ''); // Filter input with regex to only take alphabetical letters
     this.tagsArr.push(this.resultString);
     this.tagInput = ''; // Clear Tag Input
-    // console.log(this.tagsArr);
+    console.log(this.tagsArr);
   }
   resultString: string = "";
 
@@ -81,5 +81,13 @@ export class AddVideoComponent {
   {
     this.newVideo.tagsAsString = this.tagsArr.join(',');
     console.log(this.newVideo.tagsAsString);
+  }
+
+  removeTag(tag: string) : void
+  {
+    const index = this.tagsArr.indexOf(tag);
+    if (index > -1)
+      this.tagsArr.splice(index, 1);
+    console.log(this.tagsArr);
   }
 }

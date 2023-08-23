@@ -39,7 +39,9 @@
             </form>
             <div class="tag-container-custom" *ngIf="tagsArr.length > 0">
               <div class="tags-container" >
-                <span class="tag tag-purple" *ngFor="let tag of tagsArr">{{ tag }}</span>
+                <a *ngFor="let tag of tagsArr">
+                  <span class="tag tag-purple" (click)="removeTag(tag)" >{{ tag }}</span>
+                </a>
               </div>
             </div>
     </div>

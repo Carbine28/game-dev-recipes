@@ -60,6 +60,7 @@ export class EditVideoComponent {
   }
 
   public updateVideo() {
+    this.updateTags();
     this.videoService
       .updateVideo(this.updatedVideo.id, this.updatedVideo)
       .subscribe({
@@ -83,11 +84,23 @@ export class EditVideoComponent {
     this.resultString = this.tagInput.replace(/[^a-zA-Z]/g, ''); // Filter input with regex to only take alphabetical letters
     this.tagsArr.push(this.resultString);
     this.tagInput = ''; // Clear Tag Input
-    // console.log(this.tagsArr);
+    console.log(this.tagsArr);
   }
   processTags()
   {
     this.tagsArr  = this.updatedVideo.tagsAsString.split(',');
     // console.log(this.updatedVideo.tagsAsString);
+  }
+
+  updateTags(){
+    this.updatedVideo.tagsAsString = this.tagsArr.join(',');
+  }
+
+  removeTag(tag: string) : void
+  {
+    const index = this.tagsArr.indexOf(tag);
+    if (index > -1)
+      this.tagsArr.splice(index, 1);
+    console.log(this.tagsArr);
   }
 }
