@@ -18,18 +18,23 @@
     </div>
 </div>
 
+<div class="results">
+    <app-video-card class="result" (tagClick)="handleTagClick($event)"
+    *ngFor="let _videoCard of filteredVideoList"
+    [videoCard]="_videoCard">
+    </app-video-card>
+</div>
 
-
-<div container="video-card-container">
+<!-- <div container="video-card-container">
     <div class="card-container">
         <div class="results">
-            <app-video-card (tagClick)="handleTagClick($event)"
+            <app-video-card class="result" (tagClick)="handleTagClick($event)"
             *ngFor="let _videoCard of filteredVideoList"
             [videoCard]="_videoCard">
             </app-video-card>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <button (click)="openVideoModal()">Open Video Overlay</button> -->
 <!-- <app-video-modal></app-video-modal> -->

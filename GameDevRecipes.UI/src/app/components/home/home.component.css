@@ -12,10 +12,7 @@
     border-style: solid;
 }
 
-.card-container{
-    display:flex;
-    justify-content: center;
-}
+
 .results {
     display: flex;
     column-gap: 28px;
@@ -52,7 +49,29 @@
     color: white;
 }
 
+
+
+
 .video-card-container{
     border-style: solid;
+    max-width: 100%; /* Add this to limit the container's width */
+    margin: 0 auto; /* To center the container horizontally */
 }
 
+.card-container{
+    display:flex;
+    justify-content: center;
+    max-width: 100%; /* Add this to limit the container's width */
+    margin: 0 auto; /* To center the container horizontally */
+}
+
+.results{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    /* border-style: solid;
+    border-color: pink; */
+    padding-left: 100px;
+}

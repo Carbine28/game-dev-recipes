@@ -20,7 +20,6 @@ import { AddVideoComponent } from './components/add-video/add-video.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditVideoComponent } from './components/edit-video/edit-video.component';
 import { VideoCardComponent } from './components/video-card/video-card.component';
-import { VideoModalComponent } from './components/video-modal/video-modal.component';
 
 
 @NgModule({
@@ -31,7 +30,6 @@ import { VideoModalComponent } from './components/video-modal/video-modal.compon
     HomeComponent,
     EditVideoComponent,
     VideoCardComponent,
-    VideoModalComponent
   ],
   imports: [
     BrowserModule,

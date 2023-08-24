@@ -38,7 +38,7 @@ import { VideosService } from 'src/app/services/videos.service';
             {{videoCard.description}}
           </p> -->
           <div class="user">
-            <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
+            <img src="../assets/images/person.png" alt="user" />
             <div class="user-info">
               <h5>Auther Name</h5>
               <small>{{videoCard.gameEngine}}</small>
