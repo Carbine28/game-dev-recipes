@@ -4,7 +4,9 @@ GameDev Recipes is a web application primarily developed for managing and viewin
 
 The idea was implemented as I found the youtube playlist system to be lackluster. Having a large amount of videos in one playlist made finding specific tutorials difficult. Unless you created a new tab when selecting a video, the tab would change to the video player, this meant that you would need to reopen your playlist again from the beginning and scroll down to find additional videos.
 
-# Links
+## Implementation
+Apis are used to communicate to the ASP.NET Core backend server. When a video is added using a youtube link, the server calls on Youtube's Data Api to fetch the required information needed to display the videos on the home screen.
+## Links
 ![Full video demonstration can be found here](https://www.youtube.com/watch?v=toGPDNlenHc)
 
 ## Technologies Used
