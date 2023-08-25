@@ -8,7 +8,7 @@ The idea was implemented as I found the youtube playlist system to be lackluster
 ![](https://github.com/Carbine28/game-dev-recipes/blob/main/extraImages/app-diagram.png)
 Standard HTTP Operations (GET/POST/PUT/DELETE) are used to connect the frontend to the ASP.Net Core backend. The backend, built on ASP.NET Core's Web API, employs Entity Framework to interact with an MSSQL database. For the front-end, Angular is used along with Bootstrap and Angular Material libraries to enhance the functionality of the web application. Youtube's Data Api is used to retrieve video information from user-submitted links. 
 ## Links
-![Full video demonstration can be found here](https://www.youtube.com/watch?v=toGPDNlenHc)
+[Full video demonstration can be found here](https://www.youtube.com/watch?v=toGPDNlenHc)
 
 ## Technologies Used
 - Frontend: Angular, Angular Material, Bootstrap
