@@ -1,0 +1,14 @@
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\bin\Debug\net6.0\PlaygroundCF.exe
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\bin\Debug\net6.0\PlaygroundCF.deps.json
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\bin\Debug\net6.0\PlaygroundCF.runtimeconfig.json
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\bin\Debug\net6.0\PlaygroundCF.dll
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\bin\Debug\net6.0\PlaygroundCF.pdb
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.AssemblyInfoInputs.cache
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.AssemblyInfo.cs
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.csproj.CoreCompileInputs.cache
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.dll
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\refint\PlaygroundCF.dll
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.pdb
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\PlaygroundCF.genruntimeconfig.cache
+C:\Users\wilso\source\GameDevRecipes Project\PlaygroundCF\PlaygroundCF\obj\Debug\net6.0\ref\PlaygroundCF.dll
