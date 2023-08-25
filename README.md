@@ -5,7 +5,8 @@ GameDev Recipes is a web application primarily developed for managing and viewin
 The idea was implemented as I found the youtube playlist system to be lackluster. Having a large amount of videos in one playlist made finding specific tutorials difficult. Unless you created a new tab when selecting a video, the tab would change to the video player, this meant that you would need to reopen your playlist again from the beginning and scroll down to find additional videos.
 
 ## Implementation
-Apis are used to communicate to the ASP.NET Core backend server. When a video is added using a youtube link, the server calls on Youtube's Data Api to fetch the required information needed to display the videos on the home screen.
+![](https://github.com/Carbine28/game-dev-recipes/blob/main/extraImages/app-diagram.png)
+Standard HTTP Operations (GET/POST/PUT/DELETE) are used to connect the frontend to the ASP.Net Core backend. The backend, built on ASP.NET Core's Web API, employs Entity Framework to interact with an MSSQL database. For the front-end, Angular is used along with Bootstrap and Angular Material libraries to enhance the functionality of the web application. Youtube's Data Api is used to retrieve video information from user-submitted links. 
 ## Links
 ![Full video demonstration can be found here](https://www.youtube.com/watch?v=toGPDNlenHc)
 
